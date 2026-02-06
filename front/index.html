@@ -57,8 +57,9 @@
         
         html {
             overflow-x: hidden;
-            overflow-y: auto !important; /* КРИТИЧНО: разрешаем вертикальный скролл */
+            overflow-y: scroll !important; /* КРИТИЧНО: нативный скролл */
             width: 100%;
+            height: auto !important; /* КРИТИЧНО: авто высота */
             background: #000000;
             overscroll-behavior: none;
             -webkit-overflow-scrolling: touch;
@@ -72,8 +73,9 @@
             background-color: #000000;
             color: #ffffff;
             overflow-x: hidden;
-            overflow-y: auto !important; /* КРИТИЧНО: разрешаем вертикальный скролл */
+            overflow-y: visible !important; /* КРИТИЧНО: видимый overflow */
             width: 100%;
+            height: auto !important; /* КРИТИЧНО: авто высота */
             position: relative;
             overscroll-behavior-y: none;
         }
@@ -159,17 +161,15 @@
     
     <div id="root"></div>
     
-    <!-- КРИТИЧНО: Загружаем wheel-fix ПЕРВЫМ для перехвата событий -->
+    <!-- КРИТИЧНО: Загружаем wheel-fix для убирания блокировок -->
     <script src="/wheel-fix.js"></script>
     
-    <!-- Скрипт для обеспечения скролла на ПК -->
+    <!-- Диагностические скрипты ОТКЛЮЧЕНЫ для производительности -->
+    <!--
     <script src="/enable-scroll.js"></script>
-    
-    <!-- Диагностический скрипт (временно для отладки) -->
     <script src="/diagnose-scroll.js"></script>
-    
-    <!-- Проверка загрузки секций -->
     <script src="/check-sections.js"></script>
+    -->
     
     <script type="module" src="/src/index.jsx"></script>
     
