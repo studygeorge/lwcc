@@ -161,19 +161,32 @@
     <!-- Диагностический скрипт (временно для отладки) -->
     <script src="/diagnose-scroll.js"></script>
     
+    <!-- Проверка загрузки секций -->
+    <script src="/check-sections.js"></script>
+    
     <script type="module" src="/src/index.jsx"></script>
     
     <script>
-        // Защита только от двойного тапа на мобильных (остальное разрешено)
+        // Защита ТОЛЬКО от двойного тапа на РЕАЛЬНЫХ мобильных устройствах
         (function() {
-            let lastTouchEnd = 0;
-            document.addEventListener('touchend', function(event) {
-                const now = Date.now();
-                if (now - lastTouchEnd <= 300) {
-                    event.preventDefault();
-                }
-                lastTouchEnd = now;
-            }, false);
+            // Определяем, это реально мобильное устройство или нет
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            // Применяем защиту ТОЛЬКО на реальных мобильных устройствах
+            if (isMobile && hasTouch) {
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function(event) {
+                    const now = Date.now();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+                console.log('Touch double-tap protection enabled (mobile device)');
+            } else {
+                console.log('Touch protection disabled (desktop device)');
+            }
         })();
         
         window.addEventListener('load', () => {
