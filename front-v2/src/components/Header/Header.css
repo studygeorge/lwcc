@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;900&family=Libre+Bodoni:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header--scrolled {
+    background: var(--header-bg-scrolled);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+    transition: padding 0.3s ease;
+}
+
+/* ЛОГОТИП: без обводки, без рамок, кликабельный */
+.header__logo {
+    display: flex;
+    flex-direction: column;
+    font-weight: 800;
+    line-height: 1.2;
+    z-index: 1002;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.header__logo:focus,
+.header__logo:focus-visible,
+.header__logo:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.header__logo-text {
+    font-family: 'Bodoni Moda', 'Libre Bodoni', Georgia, serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-style: normal;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+/* Светлая тема: белый текст наверху, черный при скролле */
+[data-theme="light"] .header__logo-text {
+    color: #fff;
+}
+
+[data-theme="light"] .header--scrolled .header__logo-text {
+    color: #000;
+}
+
+/* Светлая тема: черный логотип когда меню открыто */
+[data-theme="light"] .header--menu-open .header__logo-text {
+    color: #000 !important;
+}
+
+/* Темная тема: всегда белый */
+[data-theme="dark"] .header__logo-text {
+    color: #fff;
+}
+
+.header__logo-text:focus,
+.header__logo-text:active {
+    outline: none;
+}
+
+.header__nav {
+    display: flex;
+    gap: 3rem;
+    margin-left: auto;
+    margin-right: 2rem;
+}
+
+.header__nav-link {
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: all 0.3s ease;
+    position: relative;
+    opacity: 0.85;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+/* Светлая тема: белый текст наверху, черный при скролле */
+[data-theme="light"] .header__nav-link {
+    color: #fff;
+}
+
+[data-theme="light"] .header--scrolled .header__nav-link {
+    color: #000;
+}
+
+/* Светлая тема: черные пункты меню когда меню открыто */
+[data-theme="light"] .header--menu-open .header__nav-link {
+    color: #000 !important;
+}
+
+/* Темная тема: всегда белый */
+[data-theme="dark"] .header__nav-link {
+    color: #fff;
+}
+
+.header__nav-link:focus,
+.header__nav-link:active {
+    outline: none;
+}
+
+.header__nav-link:hover {
+    opacity: 1;
+}
+
+.header__nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: width 0.3s ease;
+}
+
+/* Светлая тема: белое подчеркивание наверху, черное при скролле */
+[data-theme="light"] .header__nav-link::after {
+    background: #fff;
+}
+
+[data-theme="light"] .header--scrolled .header__nav-link::after {
+    background: #000;
+}
+
+/* Светлая тема: черное подчеркивание когда меню открыто */
+[data-theme="light"] .header--menu-open .header__nav-link::after {
+    background: #000 !important;
+}
+
+/* Темная тема: всегда белое */
+[data-theme="dark"] .header__nav-link::after {
+    background: #fff;
+}
+
+.header__nav-link:hover::after {
+    width: 100%;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1002;
+}
+
+.header__theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.header__theme-toggle:focus,
+.header__theme-toggle:active {
+    outline: none;
+}
+
+.theme-toggle__track {
+    width: 56px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 28px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle__track--light {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Светлая тема наверху: белая граница */
+[data-theme="light"] .theme-toggle__track {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Светлая тема при скролле: черная граница */
+[data-theme="light"] .header--scrolled .theme-toggle__track {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Светлая тема: черная граница когда меню открыто */
+[data-theme="light"] .header--menu-open .theme-toggle__track {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.theme-toggle__thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Светлая тема: белый thumb наверху, черный при скролле */
+[data-theme="light"] .theme-toggle__thumb {
+    background: #fff;
+}
+
+[data-theme="light"] .header--scrolled .theme-toggle__thumb {
+    background: #000;
+}
+
+/* Светлая тема: черный thumb когда меню открыто */
+[data-theme="light"] .header--menu-open .theme-toggle__thumb {
+    background: #000 !important;
+}
+
+/* Темная тема: всегда белый */
+[data-theme="dark"] .theme-toggle__thumb {
+    background: #fff;
+}
+
+.theme-toggle__track--light .theme-toggle__thumb {
+    transform: translateX(28px);
+}
+
+.theme-toggle__icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Цвет иконки внутри thumb */
+[data-theme="light"] .theme-toggle__icon {
+    color: #000;
+}
+
+[data-theme="light"] .header--scrolled .theme-toggle__icon {
+    color: #fff;
+}
+
+/* Светлая тема: белая иконка когда меню открыто */
+[data-theme="light"] .header--menu-open .theme-toggle__icon {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .theme-toggle__icon {
+    color: #000;
+}
+
+.header__burger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+    outline: none;
+}
+
+.header__burger:focus,
+.header__burger:active {
+    outline: none;
+}
+
+.header__burger span {
+    width: 28px;
+    height: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Светлая тема: белые полоски наверху, черные при скролле */
+[data-theme="light"] .header__burger span {
+    background: #fff;
+}
+
+[data-theme="light"] .header--scrolled .header__burger span {
+    background: #000;
+}
+
+/* Светлая тема: черный крестик когда меню открыто */
+[data-theme="light"] .header--menu-open .header__burger span {
+    background: #000 !important;
+}
+
+/* Темная тема: всегда белые */
+[data-theme="dark"] .header__burger span {
+    background: #fff;
+}
+
+.header__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--overlay-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 968px) {
+    .header__content {
+        padding: 1.5rem 0;
+    }
+
+    .header__nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        padding: 0;
+        gap: 2.5rem;
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 1001;
+        overflow: hidden;
+    }
+
+    .header__nav--open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header__nav-link {
+        font-size: 1.6rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        opacity: 0;
+        transition: opacity 0.4s ease 0.4s;
+    }
+
+    .header__nav--open .header__nav-link {
+        opacity: 1;
+    }
+
+    [data-theme="light"] .header__nav--open .header__nav-link {
+        color: #000 !important;
+    }
+
+    [data-theme="dark"] .header__nav--open .header__nav-link {
+        color: #fff !important;
+    }
+
+    .header__burger {
+        display: flex;
+    }
+
+    .header__burger--open span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .header__burger--open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header__burger--open span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .header__logo-text {
+        font-size: 1.4rem;
+    }
+
+    .header__nav-link::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header__nav {
+        gap: 2rem;
+    }
+
+    .header__nav-link {
+        font-size: 1.4rem;
+    }
+
+    .header__logo-text {
+        font-size: 1.2rem;
+    }
+
+    .theme-toggle__track {
+        width: 48px;
+        height: 24px;
+    }
+
+    .theme-toggle__thumb {
+        width: 20px;
+        height: 20px;
+    }
+
+    .theme-toggle__track--light .theme-toggle__thumb {
+        transform: translateX(24px);
+    }
+
+    .theme-toggle__icon {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* =========================================================
+   ПРОЕКТЫ (НЕ ГЛАВНАЯ): светлая тема в верхней точке
+   Хедер сразу в "чёрном" режиме и с фоном.
+   Работает только когда body имеет page--project.
+   ========================================================= */
+
+body.page--project .header {
+    background: var(--header-bg-scrolled) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* ВАЖНО: именно так, чтобы перебить верхние white-стили */
+[data-theme="light"] body.page--project .header .header__logo-text {
+    color: #000 !important;
+}
+
+[data-theme="light"] body.page--project .header .header__nav-link {
+    color: #000 !important;
+}
+
+[data-theme="light"] body.page--project .header .header__nav-link::after {
+    background: #000 !important;
+}
+
+[data-theme="light"] body.page--project .header .header__burger span {
+    background: #000 !important;
+}
+
+[data-theme="light"] body.page--project .header .theme-toggle__track {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="light"] body.page--project .header .theme-toggle__thumb {
+    background: #000 !important;
+}
+
+[data-theme="light"] body.page--project .header .theme-toggle__icon {
+    color: #fff !important;
+}
+
+/* На темной теме на проектах всё остаётся контрастным */
+[data-theme="dark"] body.page--project .header .header__logo-text {
+    color: #fff !important;
+}
+
+[data-theme="dark"] body.page--project .header .header__nav-link {
+    color: #fff !important;
+}
+
+[data-theme="dark"] body.page--project .header .header__nav-link::after {
+    background: #fff !important;
+}
+
+[data-theme="dark"] body.page--project .header .header__burger span {
+    background: #fff !important;
+}
+
+[data-theme="dark"] body.page--project .header .theme-toggle__track {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] body.page--project .header .theme-toggle__thumb {
+    background: #fff !important;
+}
+
+[data-theme="dark"] body.page--project .header .theme-toggle__icon {
+    color: #000 !important;
+}

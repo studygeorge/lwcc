@@ -1,0 +1,291 @@
+.hero {
+    position: relative;
+    min-height: 600px; /* ИЗМЕНЕНО: с 100vh на фиксированную высоту */
+    height: auto; /* ДОБАВЛЕНО: авто высота */
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    overflow: hidden;
+    background: var(--color-bg);
+    pointer-events: auto; /* КРИТИЧНО: Разрешаем события скролла */
+}
+
+.hero__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none; /* ← ДОБАВЛЕНО: Пропускает события мыши */
+}
+
+.hero__background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 100%),
+        url('/images/hero-desktop.jpg') center/cover no-repeat;
+    transition: opacity 0.6s ease;
+    pointer-events: none; /* ← ДОБАВЛЕНО: Пропускает события мыши */
+}
+
+.hero__background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 100%),
+        url('/images/hero-desktop-morning.jpg') center/cover no-repeat;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none; /* ← ДОБАВЛЕНО: Пропускает события мыши */
+}
+
+[data-theme="light"] .hero__background::before {
+    opacity: 0;
+}
+
+[data-theme="light"] .hero__background::after {
+    opacity: 1;
+}
+
+.hero__container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    pointer-events: auto; /* КРИТИЧНО: Разрешаем события скролла */
+}
+
+.hero__content {
+    max-width: 900px;
+    padding: 4rem 0; /* ИЗМЕНЕНО: с 8rem на 4rem для уменьшения высоты */
+    pointer-events: auto; /* КРИТИЧНО: Разрешаем события скролла */
+}
+
+.hero__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero__title-main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: #fff;
+    text-transform: uppercase;
+    font-style: italic;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero__title-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: 0.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero__description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    color: #fff;
+    max-width: 600px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero__actions {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hero__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: transparent;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+.hero__btn:focus,
+.hero__btn:active {
+    outline: none;
+}
+
+.hero__btn:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.hero__btn span {
+    flex: 1;
+}
+
+.hero__btn-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero__btn:hover .hero__btn-circle {
+    background: #000;
+    color: #fff;
+    transform: rotate(45deg);
+}
+
+@media (max-width: 1280px) {
+    .hero__container {
+        padding: 0 2rem;
+    }
+
+    .hero__title-main {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero__title-main {
+        font-size: 4.5rem;
+    }
+
+    .hero__title-sub {
+        font-size: 1.3rem;
+    }
+
+    .hero__content {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        align-items: flex-start;
+        min-height: 500px; /* ИЗМЕНЕНО: фиксированная высота вместо 100vh */
+    }
+
+    .hero__background::before {
+        background: 
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%),
+            url('/images/hero-mobile.jpg') center/cover no-repeat;
+    }
+
+    .hero__background::after {
+        background: 
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%),
+            url('/images/hero-mobile-morning.jpg') center/cover no-repeat;
+    }
+
+    .hero__container {
+        padding: 0 2rem;
+        height: auto; /* ИЗМЕНЕНО: с 100vh на auto */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero__content {
+        padding: 0;
+        max-width: 100%;
+        height: auto; /* ИЗМЕНЕНО: с 100% на auto */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 6rem; /* ИЗМЕНЕНО: с 8rem на 6rem */
+        padding-bottom: 3rem;
+    }
+
+    .hero__title {
+        margin-bottom: 1.5rem;
+    }
+
+    .hero__title-main {
+        font-size: 2.5rem;
+        line-height: 1.15;
+    }
+
+    .hero__title-sub {
+        font-size: 1rem;
+        letter-spacing: 0.15em;
+    }
+
+    .hero__description {
+        font-size: 0.95rem;
+        margin-bottom: 0;
+        line-height: 1.6;
+    }
+
+    .hero__actions {
+        margin-top: auto;
+        width: 100%;
+    }
+
+    .hero__btn {
+        width: 100%;
+        justify-content: space-between;
+        padding: 1.1rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    .hero__btn-circle {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__content {
+        padding-top: 5rem; /* ИЗМЕНЕНО: с 7rem на 5rem */
+        padding-bottom: 2.5rem;
+    }
+
+    .hero__title-main {
+        font-size: 2.2rem;
+    }
+
+    .hero__title-sub {
+        font-size: 0.9rem;
+    }
+
+    .hero__description {
+        font-size: 0.9rem;
+    }
+}
