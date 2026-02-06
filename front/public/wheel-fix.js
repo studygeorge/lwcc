@@ -1,60 +1,96 @@
-// Агрессивный обработчик wheel событий - перехватываем ДО всего остального
+// Агрессивный обработчик wheel событий - РУЧНОЙ СКРОЛЛ
 (function() {
     'use strict';
     
-    console.log('%c[WHEEL FIX] Initializing aggressive wheel handler', 'color: lime; font-weight: bold');
+    console.log('%c[WHEEL FIX] Initializing manual scroll handler', 'color: lime; font-weight: bold');
     
     let isScrolling = false;
-    let scrollTarget = 0;
-    let currentScroll = 0;
+    let targetScroll = window.pageYOffset || 0;
     
-    // Функция плавного скролла
-    function smoothScroll() {
+    // Плавный скролл вручную
+    function animateScroll() {
         if (!isScrolling) return;
         
-        const diff = scrollTarget - currentScroll;
-        if (Math.abs(diff) < 0.5) {
+        const currentScroll = window.pageYOffset;
+        const diff = targetScroll - currentScroll;
+        
+        if (Math.abs(diff) < 1) {
+            window.scrollTo(0, targetScroll);
             isScrolling = false;
             return;
         }
         
-        currentScroll += diff * 0.1;
-        window.scrollTo(0, currentScroll);
-        requestAnimationFrame(smoothScroll);
+        const step = diff * 0.15;
+        window.scrollTo(0, currentScroll + step);
+        requestAnimationFrame(animateScroll);
     }
     
-    // Перехватываем wheel ОЧЕНЬ РАНО с capture: true
+    // Перехватываем wheel и скроллим ВРУЧНУЮ
     function handleWheel(e) {
-        // НЕ вызываем preventDefault - пусть браузер скроллит сам!
         console.log('[WHEEL FIX] Wheel detected:', e.deltaY);
+        
+        // Получаем текущую позицию
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
+        
+        // Вычисляем новую позицию
+        const scrollAmount = e.deltaY * 2; // Множитель для скорости
+        targetScroll = Math.max(0, currentScroll + scrollAmount);
+        
+        // Ограничиваем максимум
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        targetScroll = Math.min(targetScroll, maxScroll);
+        
+        // Запускаем анимацию
+        if (!isScrolling) {
+            isScrolling = true;
+            requestAnimationFrame(animateScroll);
+        }
     }
     
-    // Добавляем слушатель в фазе capture (самый ранний)
+    // Добавляем слушатель в фазе capture
     window.addEventListener('wheel', handleWheel, { 
-        capture: true,  // КРИТИЧНО: перехватываем в фазе capture
-        passive: true   // КРИТИЧНО: не блокируем нативный скролл
+        capture: true,
+        passive: true
     });
     
-    // Дополнительно - проверяем, что body и html не заблокированы
-    function ensureScrollable() {
+    // КРИТИЧНО: Убираем высоту 100vh с body и html
+    function fixHeights() {
         const html = document.documentElement;
         const body = document.body;
         
+        // Убираем все блокировки
+        html.style.height = '';
+        body.style.height = '';
+        html.style.minHeight = '';
+        body.style.minHeight = '';
+        
+        // Разрешаем overflow
         if (body.style.overflow === 'hidden' && !html.classList.contains('menu-open')) {
-            console.warn('[WHEEL FIX] Body overflow was hidden, fixing...');
             body.style.overflow = '';
             body.style.position = '';
             body.style.top = '';
         }
         
         if (html.style.overflow === 'hidden') {
-            console.warn('[WHEEL FIX] HTML overflow was hidden, fixing...');
             html.style.overflow = '';
+        }
+        
+        // Проверяем scrollHeight
+        const scrollHeight = Math.max(
+            body.scrollHeight,
+            document.documentElement.scrollHeight
+        );
+        
+        if (scrollHeight > window.innerHeight) {
+            console.log('[WHEEL FIX] Content height:', scrollHeight, 'Window height:', window.innerHeight);
         }
     }
     
-    // Проверяем каждые 100ms
-    setInterval(ensureScrollable, 100);
+    // Проверяем постоянно
+    setInterval(fixHeights, 100);
     
-    console.log('%c[WHEEL FIX] Handler installed successfully', 'color: lime; font-weight: bold');
+    // Сразу при загрузке
+    fixHeights();
+    
+    console.log('%c[WHEEL FIX] Manual scroll handler installed!', 'color: lime; font-weight: bold');
 })();
