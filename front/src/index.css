@@ -58,6 +58,7 @@ html {
     scroll-behavior: smooth;
     background: var(--color-bg);
     overflow-x: hidden;
+    overflow-y: auto; /* КРИТИЧНО: Разрешаем вертикальный скролл */
     width: 100%;
     position: relative;
     scroll-padding-top: 120px; /* ← Изменено с 100px на 120px для ПК */
@@ -78,6 +79,7 @@ body {
     color: var(--color-text);
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-y: auto; /* КРИТИЧНО: Разрешаем вертикальный скролл */
     width: 100%;
     position: relative;
     overscroll-behavior-y: none;
@@ -88,10 +90,6 @@ body {
    МОБИЛЬНЫЕ ПРАВИЛА (ТОЛЬКО НА МОБИЛЬНЫХ)
    ============================================ */
 @media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
-    * {
-        touch-action: pan-y !important;
-    }
-    
     html {
         touch-action: pan-y !important;
         scroll-padding-top: 80px;
