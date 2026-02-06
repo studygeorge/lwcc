@@ -57,6 +57,7 @@ body {
     background: #000000;
     overflow-x: hidden;
     width: 100%;
+    pointer-events: auto; /* КРИТИЧНО: Разрешаем события */
 }
 
 .app__main {
@@ -64,6 +65,7 @@ body {
     background: #000000;
     overflow-x: hidden;
     width: 100%;
+    pointer-events: auto; /* КРИТИЧНО: Разрешаем события */
 }
 
 .container {
@@ -98,6 +100,7 @@ section {
     width: 100%;
     position: relative;
     isolation: isolate;
+    pointer-events: auto; /* КРИТИЧНО: Разрешаем события */
 }
 
 @media (max-width: 768px) {

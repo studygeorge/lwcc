@@ -6,6 +6,7 @@
     padding-top: 0;
     overflow: hidden;
     background: var(--color-bg);
+    pointer-events: auto; /* КРИТИЧНО: Разрешаем события скролла */
 }
 
 .hero__background {
@@ -62,11 +63,13 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 4rem;
+    pointer-events: auto; /* КРИТИЧНО: Разрешаем события скролла */
 }
 
 .hero__content {
     max-width: 900px;
     padding: 8rem 0;
+    pointer-events: auto; /* КРИТИЧНО: Разрешаем события скролла */
 }
 
 .hero__title {
