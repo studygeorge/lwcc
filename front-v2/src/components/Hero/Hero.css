@@ -1,13 +1,13 @@
 .hero {
     position: relative;
-    min-height: 600px; /* ИЗМЕНЕНО: с 100vh на фиксированную высоту */
-    height: auto; /* ДОБАВЛЕНО: авто высота */
+    min-height: 100vh; /* ИЗМЕНЕНО: возвращаем 100vh для полноэкранного фото */
+    height: auto;
     display: flex;
     align-items: center;
     padding-top: 0;
     overflow: hidden;
     background: var(--color-bg);
-    pointer-events: auto; /* КРИТИЧНО: Разрешаем события скролла */
+    pointer-events: auto;
 }
 
 .hero__background {
@@ -69,8 +69,8 @@
 
 .hero__content {
     max-width: 900px;
-    padding: 4rem 0; /* ИЗМЕНЕНО: с 8rem на 4rem для уменьшения высоты */
-    pointer-events: auto; /* КРИТИЧНО: Разрешаем события скролла */
+    padding: 8rem 0; /* ИЗМЕНЕНО: возвращаем 8rem для большего пространства */
+    pointer-events: auto;
 }
 
 .hero__title {
@@ -200,7 +200,7 @@
 @media (max-width: 768px) {
     .hero {
         align-items: flex-start;
-        min-height: 500px; /* ИЗМЕНЕНО: фиксированная высота вместо 100vh */
+        min-height: 100vh; /* ИЗМЕНЕНО: возвращаем 100vh */
     }
 
     .hero__background::before {
@@ -217,7 +217,7 @@
 
     .hero__container {
         padding: 0 2rem;
-        height: auto; /* ИЗМЕНЕНО: с 100vh на auto */
+        height: 100vh; /* ИЗМЕНЕНО: возвращаем 100vh */
         display: flex;
         flex-direction: column;
     }
@@ -225,11 +225,11 @@
     .hero__content {
         padding: 0;
         max-width: 100%;
-        height: auto; /* ИЗМЕНЕНО: с 100% на auto */
+        height: 100%; /* ИЗМЕНЕНО: возвращаем 100% */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding-top: 6rem; /* ИЗМЕНЕНО: с 8rem на 6rem */
+        padding-top: 8rem; /* ИЗМЕНЕНО: возвращаем 8rem */
         padding-bottom: 3rem;
     }
 
@@ -273,7 +273,7 @@
 
 @media (max-width: 480px) {
     .hero__content {
-        padding-top: 5rem; /* ИЗМЕНЕНО: с 7rem на 5rem */
+        padding-top: 7rem; /* ИЗМЕНЕНО: возвращаем 7rem */
         padding-bottom: 2.5rem;
     }
 

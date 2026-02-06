@@ -118,10 +118,6 @@ function AppWithScrollReset() {
         if (prev.pathname !== curr.pathname) {
             prevLocationRef.current = curr;
 
-            // ОТКЛЮЧЕНО: автоматический скролл при смене маршрута
-            console.log('Auto-scroll disabled for route change');
-            
-            /* СТАРЫЙ КОД - закомментирован
             if (curr.hash) {
                 setTimeout(() => {
                     const element = document.querySelector(curr.hash);
@@ -135,15 +131,10 @@ function AppWithScrollReset() {
             } else {
                 window.scrollTo(0, 0);
             }
-            */
         } 
         else if (prev.hash !== curr.hash && curr.hash) {
             prevLocationRef.current = curr;
             
-            // ОТКЛЮЧЕНО: автоматический скролл при смене хэша
-            console.log('Auto-scroll disabled for hash change');
-            
-            /* СТАРЫЙ КОД - закомментирован
             setTimeout(() => {
                 const element = document.querySelector(curr.hash);
                 if (element) {
@@ -153,7 +144,6 @@ function AppWithScrollReset() {
                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
             }, 300);
-            */
         }
     }, [location]);
 
