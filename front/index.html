@@ -57,6 +57,7 @@
         
         html {
             overflow-x: hidden;
+            overflow-y: auto !important; /* КРИТИЧНО: разрешаем вертикальный скролл */
             width: 100%;
             background: #000000;
             overscroll-behavior: none;
@@ -71,6 +72,7 @@
             background-color: #000000;
             color: #ffffff;
             overflow-x: hidden;
+            overflow-y: auto !important; /* КРИТИЧНО: разрешаем вертикальный скролл */
             width: 100%;
             position: relative;
             overscroll-behavior-y: none;
@@ -155,6 +157,9 @@
     
     <!-- Скрипт для обеспечения скролла на ПК -->
     <script src="/enable-scroll.js"></script>
+    
+    <!-- Диагностический скрипт (временно для отладки) -->
+    <script src="/diagnose-scroll.js"></script>
     
     <script type="module" src="/src/index.jsx"></script>
     
