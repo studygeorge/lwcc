@@ -1,5 +1,5 @@
 .services {
-    padding: 5rem 0;
+    padding: 3rem 0; /* ИЗМЕНЕНО: с 5rem на 3rem */
     background: var(--color-bg);
     position: relative;
     z-index: 1;

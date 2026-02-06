@@ -3,7 +3,7 @@
 .projects {
     background: var(--color-bg);
     color: var(--color-text);
-    padding: 5rem 0;
+    padding: 3rem 0; /* ИЗМЕНЕНО: с 5rem на 3rem */
     position: relative;
     z-index: 2;
     isolation: isolate;

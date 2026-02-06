@@ -1,7 +1,7 @@
 .about {
     background: var(--color-bg);
     color: var(--color-text);
-    padding: 8rem 0;
+    padding: 4rem 0; /* ИЗМЕНЕНО: с 8rem на 4rem для уменьшения высоты */
     position: relative;
 }
 
@@ -24,7 +24,7 @@
 
 .about__image-wrapper {
     width: 100%;
-    height: 600px;
+    height: 400px; /* ИЗМЕНЕНО: с 600px на 400px */
     overflow: hidden;
     border-radius: 0;
 }
