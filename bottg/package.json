@@ -1,0 +1,29 @@
+{
+  "name": "lakewood-telegram-bot",
+  "version": "1.0.0",
+  "description": "Telegram бот для приема заявок с сайта Lakewood",
+  "main": "telegram-bot.js",
+  "scripts": {
+    "start": "node telegram-bot.js",
+    "dev": "nodemon telegram-bot.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop lakewood-bot",
+    "pm2:restart": "pm2 restart lakewood-bot",
+    "pm2:delete": "pm2 delete lakewood-bot",
+    "pm2:logs": "pm2 logs lakewood-bot",
+    "pm2:status": "pm2 status"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "lakewood"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
