@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Lakewood - строительство загородных домов под ключ. Профессиональное проектирование и реализация.">
+    <meta name="keywords" content="строительство домов, загородные дома, дома под ключ, Lakewood">
+    <meta name="author" content="Lakewood">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lwcc.ru/">
+    <meta property="og:title" content="Lakewood - Строительство загородных домов">
+    <meta property="og:description" content="От проекта до готового дома. Профессиональное строительство под ключ.">
+    <meta property="og:image" content="https://lwcc.ru/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lwcc.ru/">
+    <meta property="twitter:title" content="Lakewood - Строительство загородных домов">
+    <meta property="twitter:description" content="От проекта до готового дома. Профессиональное строительство под ключ.">
+    <meta property="twitter:image" content="https://lwcc.ru/images/og-image.jpg">
+
+    <!-- Favicon - все форматы -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Android Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest">
+
+    <title>Lakewood - Строительство домов</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Theme Color - BLACK для всех браузеров -->
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            background: #000000;
+            overscroll-behavior: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            overscroll-behavior-y: none;
+        }
+        
+        #root {
+            min-height: 100vh;
+            overflow-x: hidden;
+            width: 100%;
+            background: #000000;
+        }
+        
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .preloader__spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .preloader--hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106428945', 'ym');
+
+        ym(106428945, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <!-- /Yandex.Metrika counter -->
+
+    <!-- Victory Pixel -->
+    <script type="text/javascript">
+        (function (d, w) {
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script");
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://victorycorp.ru/index.php?ref="+d.referrer+"&page=" + encodeURIComponent(w.location.href);
+                n.parentNode.insertBefore(s, n);
+        })(document, window);
+    </script>
+    <!-- /Victory Pixel -->
+</head>
+<body>
+    <!-- Yandex.Metrika noscript -->
+    <noscript><div><img src="https://mc.yandex.ru/watch/106428945" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader__spinner"></div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script type="module" src="/src/index.jsx"></script>
+    
+    <script>
+        // Защита только от двойного тапа на мобильных (остальное разрешено)
+        (function() {
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(event) {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+        })();
+        
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.classList.add('preloader--hidden');
+                    setTimeout(() => {
+                        preloader.remove();
+                    }, 500);
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>

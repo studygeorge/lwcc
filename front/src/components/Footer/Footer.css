@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;900&family=Libre+Bodoni:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+.footer {
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding: 4rem 0 2rem;
+}
+
+[data-theme="dark"] .footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.footer__main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 6rem;
+    padding-bottom: 3rem;
+}
+
+[data-theme="dark"] .footer__main {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .footer__main {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer__column--large {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* БРЕНД/ЛОГО В ФУТЕРЕ: если это <button>, убираем рамки/обводки */
+.footer__logo {
+    font-family: 'Bodoni Moda', 'Libre Bodoni', Georgia, serif;
+    font-size: 3rem;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--color-text);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: none;
+    text-align: left;
+}
+
+.footer__logo:focus,
+.footer__logo:focus-visible,
+.footer__logo:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.footer__tagline {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    opacity: 0.6;
+    margin: 0;
+    max-width: 400px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer__top-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: fit-content;
+    margin-top: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+.footer__top-button:focus,
+.footer__top-button:active {
+    outline: none;
+}
+
+.footer__top-button span {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer__top-button:hover span {
+    transform: translateY(-3px);
+}
+
+.footer__top-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--color-text);
+    color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer__top-button:hover .footer__top-circle {
+    transform: translateY(-5px);
+}
+
+[data-theme="dark"] .footer__top-button:hover .footer__top-circle {
+    background: #f0f0f0;
+}
+
+[data-theme="light"] .footer__top-button:hover .footer__top-circle {
+    background: #2a2a2a;
+}
+
+.footer__heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+    opacity: 0.5;
+    letter-spacing: 0.15em;
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer__link {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    opacity: 0.7;
+    text-align: left;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+.footer__link:focus,
+.footer__link:active {
+    outline: none;
+}
+
+.footer__link:hover {
+    opacity: 1;
+}
+
+.footer__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer__contact-link {
+    color: var(--color-text);
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: opacity 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer__contact-link:hover {
+    opacity: 1;
+}
+
+.footer__contact-text {
+    color: var(--color-text);
+    opacity: 0.7;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.footer__copyright {
+    color: var(--color-text);
+    opacity: 0.4;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer__legal {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer__legal-link {
+    color: var(--color-text);
+    opacity: 0.4;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: opacity 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer__legal-link:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+    .footer__main {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .footer__column--large {
+        grid-column: 1 / -1;
+    }
+
+    .footer__logo {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer__container {
+        padding: 0 2rem;
+    }
+
+    .footer__main {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer__logo {
+        font-size: 2rem;
+    }
+
+    .footer__tagline {
+        font-size: 0.9rem;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer__legal {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}

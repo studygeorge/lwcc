@@ -1,0 +1,228 @@
+/* lwcc/front/src/components/Projects/pages/project-06/ProjectPage.css */
+
+/* СКОП: только для Project 06 */
+.p06-page {
+    padding-top: 100px;
+    padding-bottom: 4rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+    .p06-page {
+        padding-top: 80px;
+        padding-bottom: 3rem;
+    }
+}
+
+.p06-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .p06-container {
+        gap: 1.15rem;
+        padding-top: 0.75rem;
+    }
+}
+
+.p06-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.p06-header__left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.p06-title {
+    margin: 0;
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--color-text);
+}
+
+.p06-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.78;
+    color: var(--color-text);
+}
+
+.p06-tech {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.78;
+    color: var(--color-text);
+}
+
+.p06-back {
+    color: var(--color-text);
+    opacity: 0.85;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    white-space: nowrap;
+}
+
+.p06-back:hover {
+    opacity: 1;
+}
+
+/* Медиа */
+.p06-media {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+@media (max-width: 768px) {
+    .p06-media {
+        border-radius: 14px;
+    }
+}
+
+.p06-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Планировка: уменьшаем на 30% и центрируем, чтобы не растягивалась */
+.p06-media--plan {
+    margin: 0.15rem 0 0.25rem;
+    border-radius: 18px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.75rem 0;
+}
+
+@media (max-width: 768px) {
+    .p06-media--plan {
+        border-radius: 14px;
+        padding: 0.6rem 0;
+        margin: 0.1rem 0 0.2rem;
+    }
+}
+
+.p06-image--plan {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+
+    transform: scale(0.7);
+    transform-origin: center center;
+
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* карточки параметров */
+.p06-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.p06-meta__item {
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border-radius: 14px;
+}
+
+[data-theme="dark"] .p06-meta__item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] .p06-meta__item {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.p06-meta__label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    color: var(--color-text);
+}
+
+.p06-meta__value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* текст */
+.p06-text {
+    width: 100%;
+}
+
+.p06-paragraph {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    opacity: 0.92;
+    max-width: 100%;
+    color: var(--color-text);
+}
+
+.p06-paragraph + .p06-paragraph {
+    margin-top: 1rem;
+}
+
+.p06-paragraph--label {
+    margin-top: 0.35rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+@media (max-width: 900px) {
+    .p06-meta {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .p06-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .p06-title {
+        font-size: 2.2rem;
+    }
+
+    .p06-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .p06-tech {
+        font-size: 0.92rem;
+    }
+
+    .p06-paragraph {
+        font-size: 0.98rem;
+        line-height: 1.85;
+    }
+}
