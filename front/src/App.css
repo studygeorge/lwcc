@@ -1,71 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;900&family=Libre+Bodoni:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
-/* ============================================
-   ГЛОБАЛЬНЫЕ ПРАВИЛА
-   ============================================ */
-
+/* ГЛОБАЛЬНЫЕ ПРАВИЛА */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* КРИТИЧНО: Блокировка скролла при открытом меню */
+/* Блокировка скролла при открытом меню */
 html.menu-open {
-    scroll-behavior: auto !important;
+    overflow: hidden !important;
 }
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    overflow-y: auto; /* КРИТИЧНО: Разрешаем вертикальный скролл */
-    width: 100%;
-    position: relative;
-    background: #000000;
-    overscroll-behavior: none;
-    -webkit-overflow-scrolling: touch;
-    -webkit-text-size-adjust: none !important;
-    -moz-text-size-adjust: none !important;
-    -ms-text-size-adjust: none !important;
-    text-size-adjust: none !important;
-    scroll-padding-top: 50px;
 }
 
 body {
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--color-secondary);
     line-height: 1.6;
     background: #000000;
-    overflow-x: hidden;
-    overflow-y: auto; /* КРИТИЧНО: Разрешаем вертикальный скролл */
-    width: 100%;
-    position: relative;
-    overscroll-behavior-y: none;
 }
 
-/* ============================================
-   LAYOUT
-   ============================================ */
+/* LAYOUT */
 .app {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background: #000000;
-    overflow-x: hidden;
-    width: 100%;
-    pointer-events: auto; /* КРИТИЧНО: Разрешаем события */
 }
 
 .app__main {
     flex: 1;
     background: #000000;
-    overflow-x: hidden;
-    width: 100%;
-    pointer-events: auto; /* КРИТИЧНО: Разрешаем события */
 }
 
 .container {
@@ -83,29 +54,20 @@ body {
 }
 
 @media (max-width: 768px) {
-    html {
-        scroll-padding-top: 45px;
-    }
-
     .container {
         padding: 0 1rem;
     }
 }
 
-/* Секции - МИНИМАЛЬНЫЕ ОТСТУПЫ */
+/* Секции */
 section {
-    padding: 2rem 0;
+    padding: 3rem 0;
     background: #000000;
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-    isolation: isolate;
-    pointer-events: auto; /* КРИТИЧНО: Разрешаем события */
 }
 
 @media (max-width: 768px) {
     section {
-        padding: 1.5rem 0;
+        padding: 2rem 0;
     }
 }
 
@@ -158,26 +120,9 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    pointer-events: none;
-    -webkit-user-drag: none;
-    -moz-user-drag: none;
-    -ms-user-drag: none;
-    user-drag: none;
 }
 
-/* Защита от переполнения контента */
-* {
-    max-width: 100%;
-}
-
-/* Предотвращение горизонтального скролла */
-body > * {
-    overflow-x: hidden;
-}
-
-/* ============================================
-   CSS-ПЕРЕМЕННЫЕ: ТЕМНАЯ ТЕМА (по умолчанию)
-   ============================================ */
+/* CSS-ПЕРЕМЕННЫЕ: ТЕМНАЯ ТЕМА */
 :root {
     --color-primary: #000000;
     --color-secondary: #ffffff;
@@ -191,7 +136,6 @@ body > * {
     --color-border: #333333;
     --color-accent: #ffffff;
     
-    /* КРИТИЧНО: Прозрачный фон для видимого блюра */
     --header-bg-scrolled: rgba(0, 0, 0, 0.7);
     --overlay-bg: rgba(0, 0, 0, 0.85);
     
@@ -206,9 +150,7 @@ body > * {
     --transition: 0.3s ease;
 }
 
-/* ============================================
-   CSS-ПЕРЕМЕННЫЕ: СВЕТЛАЯ ТЕМА
-   ============================================ */
+/* CSS-ПЕРЕМЕННЫЕ: СВЕТЛАЯ ТЕМА */
 [data-theme="light"] {
     --color-primary: #ffffff;
     --color-secondary: #000000;
@@ -222,14 +164,11 @@ body > * {
     --color-border: #cccccc;
     --color-accent: #000000;
     
-    /* КРИТИЧНО: Прозрачный фон для видимого блюра */
     --header-bg-scrolled: rgba(255, 255, 255, 0.7);
     --overlay-bg: rgba(255, 255, 255, 0.85);
 }
 
-/* ============================================
-   ТИПОГРАФИЯ
-   ============================================ */
+/* ТИПОГРАФИЯ */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.1;
@@ -259,19 +198,16 @@ h3 {
 h4 { 
     font-size: 1.8rem;
     font-weight: 500;
-    letter-spacing: 0;
 }
 
 h5 { 
     font-size: 1.4rem;
     font-weight: 500;
-    letter-spacing: 0;
 }
 
 h6 { 
     font-size: 1.1rem;
     font-weight: 500;
-    letter-spacing: 0;
 }
 
 p {
@@ -299,7 +235,6 @@ button {
 @media (max-width: 768px) {
     html { 
         font-size: 14px;
-        scroll-padding-top: 70px;
     }
     h1 { font-size: 3rem; }
     h2 { font-size: 2.5rem; }

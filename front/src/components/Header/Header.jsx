@@ -99,11 +99,6 @@ class Header extends React.Component {
     };
 
     scrollToSection = (sectionId) => {
-        // ОТКЛЮЧЕНО: автоматический скролл к секциям
-        console.log('Auto-scroll to section disabled:', sectionId);
-        return;
-        
-        /* СТАРЫЙ КОД - закомментирован
         const headerHeight = window.innerWidth <= 768 ? 45 : 50;
         
         const element = document.querySelector(sectionId);
@@ -119,7 +114,6 @@ class Header extends React.Component {
             top: offsetPosition,
             behavior: 'smooth'
         });
-        */
     };
 
     goHome = (callback) => {
@@ -142,16 +136,14 @@ class Header extends React.Component {
                 this.scrollPosition = 0;
                 
                 this.goHome(() => {
-                    // ОТКЛЮЧЕНО: автоматический скролл вверх
-                    console.log('Auto-scroll to top disabled');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             });
             return;
         }
 
         this.goHome(() => {
-            // ОТКЛЮЧЕНО: автоматический скролл вверх
-            console.log('Auto-scroll to top disabled');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     };
 
@@ -170,17 +162,12 @@ class Header extends React.Component {
 
         closeMenuIfOpen(() => {
             if (path.startsWith('#')) {
-                // ОТКЛЮЧЕНО: автоматический скролл к секциям
-                console.log('Auto-scroll to section disabled:', path);
-                return;
-                
-                /* СТАРЫЙ КОД - закомментирован
                 this.goHome(() => {
                     setTimeout(() => {
                         this.scrollToSection(path);
                     }, 300);
                 });
-                */
+                return;
             }
 
             this.props.navigate(path);

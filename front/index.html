@@ -21,17 +21,13 @@
     <meta property="twitter:description" content="От проекта до готового дома. Профессиональное строительство под ключ.">
     <meta property="twitter:image" content="https://lwcc.ru/images/og-image.jpg">
 
-    <!-- Favicon - все форматы -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
-    <!-- Android Chrome Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-    
-    <!-- Web App Manifest -->
     <link rel="manifest" href="/site.webmanifest">
 
     <title>Lakewood - Строительство домов</title>
@@ -41,13 +37,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Theme Color - BLACK для всех браузеров -->
+    <!-- Theme Color -->
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-TileColor" content="#000000">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     
-    <!-- Critical CSS -->
+    <!-- ЧИСТЫЙ Critical CSS - БЕЗ блокировок скролла -->
     <style>
         * {
             margin: 0;
@@ -56,13 +50,8 @@
         }
         
         html {
-            overflow-x: hidden;
-            overflow-y: scroll !important; /* КРИТИЧНО: нативный скролл */
-            width: 100%;
-            height: auto !important; /* КРИТИЧНО: авто высота */
-            background: #000000;
-            overscroll-behavior: none;
-            -webkit-overflow-scrolling: touch;
+            font-size: 16px;
+            scroll-behavior: smooth;
         }
         
         body {
@@ -72,18 +61,10 @@
             -moz-osx-font-smoothing: grayscale;
             background-color: #000000;
             color: #ffffff;
-            overflow-x: hidden;
-            overflow-y: visible !important; /* КРИТИЧНО: видимый overflow */
-            width: 100%;
-            height: auto !important; /* КРИТИЧНО: авто высота */
-            position: relative;
-            overscroll-behavior-y: none;
         }
         
         #root {
             min-height: 100vh;
-            overflow-x: hidden;
-            width: 100%;
             background: #000000;
         }
         
@@ -119,41 +100,8 @@
             pointer-events: none;
         }
     </style>
-
-    <!-- Yandex.Metrika counter - ВРЕМЕННО ОТКЛЮЧЕНО для диагностики -->
-    <!--
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106428945', 'ym');
-
-        ym(106428945, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    -->
-    <!-- /Yandex.Metrika counter -->
-
-    <!-- Victory Pixel - ВРЕМЕННО ОТКЛЮЧЕНО для диагностики -->
-    <!--
-    <script type="text/javascript">
-        (function (d, w) {
-            var n = d.getElementsByTagName("script")[0],
-                s = d.createElement("script");
-                s.type = "text/javascript";
-                s.async = true;
-                s.src = "https://victorycorp.ru/index.php?ref="+d.referrer+"&page=" + encodeURIComponent(w.location.href);
-                n.parentNode.insertBefore(s, n);
-        })(document, window);
-    </script>
-    -->
-    <!-- /Victory Pixel -->
 </head>
 <body>
-    <!-- Yandex.Metrika noscript -->
-    <noscript><div><img src="https://mc.yandex.ru/watch/106428945" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    
     <!-- Preloader -->
     <div class="preloader" id="preloader">
         <div class="preloader__spinner"></div>
@@ -161,49 +109,16 @@
     
     <div id="root"></div>
     
-    <!-- КРИТИЧНО: Загружаем wheel-fix для убирания блокировок -->
-    <script src="/wheel-fix.js"></script>
-    
-    <!-- Диагностические скрипты ОТКЛЮЧЕНЫ для производительности -->
-    <!--
-    <script src="/enable-scroll.js"></script>
-    <script src="/diagnose-scroll.js"></script>
-    <script src="/check-sections.js"></script>
-    -->
-    
     <script type="module" src="/src/index.jsx"></script>
     
     <script>
-        // Защита ТОЛЬКО от двойного тапа на РЕАЛЬНЫХ мобильных устройствах
-        (function() {
-            // Определяем, это реально мобильное устройство или нет
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-            
-            // Применяем защиту ТОЛЬКО на реальных мобильных устройствах
-            if (isMobile && hasTouch) {
-                let lastTouchEnd = 0;
-                document.addEventListener('touchend', function(event) {
-                    const now = Date.now();
-                    if (now - lastTouchEnd <= 300) {
-                        event.preventDefault();
-                    }
-                    lastTouchEnd = now;
-                }, false);
-                console.log('Touch double-tap protection enabled (mobile device)');
-            } else {
-                console.log('Touch protection disabled (desktop device)');
-            }
-        })();
-        
+        // Простое удаление прелоадера
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
             if (preloader) {
                 setTimeout(() => {
                     preloader.classList.add('preloader--hidden');
-                    setTimeout(() => {
-                        preloader.remove();
-                    }, 500);
+                    setTimeout(() => preloader.remove(), 500);
                 }, 300);
             }
         });

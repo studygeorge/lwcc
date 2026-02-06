@@ -24,8 +24,6 @@ export default defineConfig({
     port: 5173,
     host: true,
     allowedHosts: [
-      '5173-iyrm8xttgjt3e3oprp08b-82b888ba.sandbox.novita.ai',
-      '5174-iyrm8xttgjt3e3oprp08b-82b888ba.sandbox.novita.ai',
       '.sandbox.novita.ai'
     ]
   }
